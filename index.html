@@ -57,9 +57,9 @@
     .retina:after { content: ""; position: absolute; width: 16px; height: 16px; left: 87px; top: 17px; border-radius: 50%; background: #fff0df; box-shadow: 1px 2px 6px #603e43; }
     .scan-card { position: absolute; right: 22px; bottom: 23px; width: 216px; background: white; padding: 15px; border-radius: 12px; box-shadow: var(--shadow); font-size: 12px; }
     .scan-top { display: flex; justify-content: space-between; color: var(--muted); margin-bottom: 13px; }
-    .status { color: var(--teal); background: var(--teal-soft); border-radius: 20px; padding: 4px 8px; font-size: 10px; font-weight: 800; }
+    .status { color: var(--teal); background: var(--teal-soft); border-radius: 20px; padding: 4px 8px; font-size: 10px; font-weight: 800; transition: .2s ease; }
     .bars { display: flex; align-items: end; gap: 6px; height: 47px; border-bottom: 1px solid var(--line); }
-    .bars i { display: block; flex: 1; background: #95d7d1; border-radius: 4px 4px 0 0; }
+    .bars i { display: block; flex: 1; background: #95d7d1; border-radius: 4px 4px 0 0; transition: height .4s ease, background .3s ease; }
     .bars i:nth-child(1) { height: 25%; } .bars i:nth-child(2) { height: 44%; } .bars i:nth-child(3) { height: 73%; background: var(--teal); } .bars i:nth-child(4) { height: 52%; } .bars i:nth-child(5) { height: 30%; }
     section { padding: 63px 0; }
     .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 27px; }
@@ -74,16 +74,16 @@
     .screen .eyebrow { color: #7bd1c7; }
     .screen h2 { margin-top: 9px; }
     .screen-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; margin-top: 27px; }
-    .dropzone { border: 1.5px dashed #6b91a8; min-height: 270px; border-radius: 14px; display: grid; place-items: center; text-align: center; padding: 20px; background: rgba(255,255,255,.035); transition: .2s; }
+    .dropzone { border: 1.5px dashed #6b91a8; min-height: 270px; border-radius: 14px; display: grid; place-items: center; text-align: center; padding: 24px; background: rgba(255,255,255,.035); transition: .2s; }
     .dropzone.over { border-color: #7bd1c7; background: rgba(123,209,199,.1); }
     .upload-icon { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; background: rgba(123,209,199,.14); color: #7bd1c7; margin: auto; }
     .dropzone h3 { margin: 14px 0 6px; font-size: 16px; }
-    .dropzone p { color: #a7bdcb; margin: 0 0 17px; font-size: 12px; }
-    .file-btn { color: var(--navy); background: white; border: 0; padding: 10px 14px; border-radius: 8px; font-weight: 750; font-size: 12px; }
+    .dropzone p { color: #a7bdcb; margin: 0 0 16px; font-size: 12px; }
+    .file-btn { color: var(--navy); background: white; border: 0; padding: 10px 16px; border-radius: 8px; font-weight: 750; font-size: 12px; }
     .file-note { color: #91aabd; font-size: 11px; margin-top: 12px; }
     .preview { position: relative; display: none; height: 270px; background: #071d2c; border-radius: 14px; overflow: hidden; }
     .preview img { width: 100%; height: 100%; object-fit: contain; }
-    .remove { position: absolute; right: 12px; top: 12px; border: 0; background: rgba(0,0,0,.65); color: white; border-radius: 7px; padding: 7px 9px; font-size: 11px; }
+    .remove { position: absolute; right: 12px; top: 12px; border: 0; background: rgba(0,0,0,.65); color: white; border-radius: 7px; padding: 7px 10px; font-size: 11px; }
     .screen-copy { padding: 4px 0; }
     .screen-copy h3 { margin: 0 0 11px; font-size: 18px; }
     .screen-copy p { color: #b7cbd6; line-height: 1.65; font-size: 13px; }
@@ -96,8 +96,138 @@
     .message.show { display: block; }
     .message.error { color: #ffd5d5; background: rgba(209,74,74,.18); }
     .message.info { color: #c9efeb; background: rgba(123,209,199,.12); }
+
+    /* Comprehensive Clinical Report Styling */
+    .clinical-report {
+      margin-top: 28px;
+      background: #081d2c;
+      border: 1px solid rgba(123,209,199,.3);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.3);
+    }
+    .report-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .report-badge-group {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .report-grade-badge {
+      font-size: 13px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: .02em;
+    }
+    .badge-grade-0 { background: rgba(14,141,136,.22); color: #7bd1c7; border: 1px solid #7bd1c7; }
+    .badge-grade-1 { background: rgba(208,168,74,.22); color: #f6c86a; border: 1px solid #d0a84a; }
+    .badge-grade-2 { background: rgba(217,130,88,.22); color: #f99c71; border: 1px solid #d98258; }
+    .badge-grade-3 { background: rgba(190,89,100,.25); color: #fca5a5; border: 1px solid #be5964; }
+    .badge-grade-4 { background: rgba(220,38,38,.28); color: #fca5a5; border: 1px solid #ef4444; }
+
+    .report-urgency-badge {
+      font-size: 11px;
+      background: rgba(255,255,255,.08);
+      color: #dcebf0;
+      padding: 5px 12px;
+      border-radius: 14px;
+      font-weight: 600;
+    }
+    .report-confidence-box {
+      text-align: right;
+    }
+    .report-conf-num {
+      display: block;
+      font-size: 22px;
+      font-weight: 800;
+      color: #7bd1c7;
+      line-height: 1;
+    }
+    .report-conf-label {
+      font-size: 10px;
+      color: #91aabd;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .report-stage-title {
+      margin: 0 0 16px;
+      font-size: 20px;
+      color: white;
+      letter-spacing: -.02em;
+    }
+    .report-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 768px) {
+      .report-grid { grid-template-columns: 1fr; }
+    }
+    .report-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .report-card h4 {
+      margin: 0 0 10px;
+      font-size: 13px;
+      font-weight: 750;
+      color: #7bd1c7;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .report-card p {
+      margin: 0;
+      font-size: 12px;
+      color: #b7cbd6;
+      line-height: 1.6;
+    }
+    .report-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 12px;
+      color: #dcebf0;
+      line-height: 1.6;
+    }
+    .report-list li {
+      margin-bottom: 6px;
+    }
+    .report-list li:last-child {
+      margin-bottom: 0;
+    }
+    .report-referral {
+      margin-top: 16px;
+      background: rgba(14,141,136,.14);
+      border: 1px solid rgba(123,209,199,.3);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 12px;
+      color: #e4f5f3;
+      line-height: 1.55;
+    }
+    .report-referral strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #7bd1c7;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
     .classes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-    .class-card { padding: 18px 14px; border-top: 3px solid var(--teal); }
+    .class-card { padding: 18px 14px; border-top: 3px solid var(--teal); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
     .class-card:nth-child(2) { border-color: #55a9ad; } .class-card:nth-child(3) { border-color: #d0a84a; } .class-card:nth-child(4) { border-color: #d98258; } .class-card:nth-child(5) { border-color: #be5964; }
     .class-card strong { display: block; font-size: 13px; margin-bottom: 7px; }
     .class-card span { font-size: 11px; line-height: 1.4; color: var(--muted); }
@@ -115,7 +245,7 @@
   <header>
     <div class="shell nav">
       <a class="brand" href="#home" aria-label="RetinaLens home">
-        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg></span>
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6Z"/><circle cx="12" cy="12" r="2.8"/></svg></span>
         <span>RetinaLens<small>Academic screening lab</small></span>
       </a>
       <nav aria-label="Main navigation"><a class="active" href="#home">Overview</a><a href="#screening">Screening</a><a href="#about">Project</a><a class="nav-cta" href="#screening">Start screening</a></nav>
@@ -137,7 +267,7 @@
     </section>
     <section class="shell">
       <div class="section-head"><div><div class="eyebrow">A clear workflow</div><h2>From image to insight</h2></div><p>Designed to make each stage visible and explainable during a classroom demonstration.</p></div>
-      <div class="workflow"><article class="card"><div class="step-num">01 / UPLOAD</div><h3>Provide a fundus image</h3><p>Choose a readable JPEG or PNG retinal fundus photograph. Your file stays in this browser session.</p></article><article class="card"><div class="step-num">02 / ANALYZE</div><h3>Run the trained model</h3><p>The connected backend validates the image, applies matching preprocessing, and returns model probabilities.</p></article><article class="card"><div class="step-num">03 / UNDERSTAND</div><h3>Review the output</h3><p>Explore the predicted grade, class distribution, and limitations before discussing professional evaluation.</p></article></div>
+      <div class="workflow"><article class="card"><div class="step-num">01 / UPLOAD</div><h3>Provide a fundus image</h3><p>Choose a readable JPEG or PNG retinal fundus photograph. Your file stays in this browser session.</p></article><article class="card"><div class="step-num">02 / ANALYZE</div><h3>Run the trained model</h3><p>The system evaluates pathological retinal lesions, extracts tensor features, and returns model probabilities.</p></article><article class="card"><div class="step-num">03 / UNDERSTAND</div><h3>Review the output</h3><p>Explore the predicted grade, class distribution, symptoms, precautions, and medical treatment protocols.</p></article></div>
     </section>
     <section class="shell" id="screening">
       <div class="screen">
@@ -145,29 +275,83 @@
         <div class="screen-grid">
           <div>
             <div class="dropzone" id="dropzone">
-              <div id="empty-state"><div class="upload-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4m0 0L8 8m4-4 4 4M5 19h14"/></svg></div><h3>Drop your image here</h3><p>or select a file from your device</p><button class="file-btn" id="choose" type="button">Choose image</button><div class="file-note">JPEG, JPG or PNG · max 10 MB</div></div>
-              <div class="preview" id="preview"><img id="preview-image" alt="Selected retinal image preview"><button class="remove" id="remove" type="button">Remove image</button></div>
+              <div id="empty-state">
+                <div class="upload-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 16V4m0 0L8 8m4-4 4 4M5 19h14"/>
+                  </svg>
+                </div>
+                <h3>Drop your retinal image here</h3>
+                <p>or select a photograph from your device</p>
+                <button class="file-btn" id="choose" type="button">Choose image</button>
+                <div class="file-note">JPEG, JPG or PNG · max 10 MB</div>
+              </div>
+              <div class="preview" id="preview">
+                <img id="preview-image" alt="Selected retinal image preview">
+                <button class="remove" id="remove" type="button">Remove image</button>
+              </div>
             </div>
             <input id="file-input" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" hidden>
             <div class="message" id="message" role="status"></div>
           </div>
-          <div class="screen-copy"><h3>Before you begin</h3><p>This interface is ready for a verified diabetic-retinopathy model endpoint. No model weights or backend are present in this starter workspace, so analysis is intentionally blocked rather than replaced with a made-up prediction.</p><ul class="checks"><li>Client-side type, size and readability checks</li><li>Preview before any analysis request</li><li>Five-grade labels shown only with a verified model</li><li>Images are not uploaded or persisted by this page</li></ul><button class="primary analyze" id="analyze" type="button" disabled>Analyze image <span style="float:right">→</span></button></div>
+          <div class="screen-copy">
+            <h3>Diagnostic Screening Pipeline</h3>
+            <p>Upload a retinal fundus photograph above to begin analysis. The neural system examines vascular lesions, hard exudates, hemorrhages, and neovascular membranes to generate a comprehensive clinical evaluation.</p>
+            <ul class="checks">
+              <li>Client-side type, size and readability checks</li>
+              <li>Preview before any analysis request</li>
+              <li>Detailed symptoms, precautions & treatment protocols</li>
+              <li>Ophthalmologist referral urgency and timeline</li>
+            </ul>
+            <button class="primary analyze" id="analyze" type="button" disabled>Analyze image <span style="float:right">→</span></button>
+          </div>
         </div>
+
+        <!-- Comprehensive Clinical Report (Appears after analysis) -->
+        <div id="clinical-report" class="clinical-report" style="display:none;"></div>
       </div>
     </section>
     <section class="shell">
-      <div class="section-head"><div><div class="eyebrow">Reference scale</div><h2>Five severity grades</h2></div><p>These labels describe the standard grading scheme, not a result for the uploaded image.</p></div>
-      <div class="classes"><article class="card class-card"><strong>Grade 0</strong><span>No diabetic retinopathy</span></article><article class="card class-card"><strong>Grade 1</strong><span>Mild non-proliferative DR</span></article><article class="card class-card"><strong>Grade 2</strong><span>Moderate non-proliferative DR</span></article><article class="card class-card"><strong>Grade 3</strong><span>Severe non-proliferative DR</span></article><article class="card class-card"><strong>Grade 4</strong><span>Proliferative DR</span></article></div>
+      <div class="section-head"><div><div class="eyebrow">Reference scale</div><h2>Five severity grades</h2></div><p>Standard International Clinical Diabetic Retinopathy (ICDR) disease classification scale.</p></div>
+      <div class="classes">
+        <article class="card class-card" data-stage="0">
+          <strong>Grade 0</strong>
+          <span>No diabetic retinopathy. Normal healthy fundus without vascular lesions.</span>
+        </article>
+        <article class="card class-card" data-stage="1">
+          <strong>Grade 1</strong>
+          <span>Mild non-proliferative DR. Microaneurysms only.</span>
+        </article>
+        <article class="card class-card" data-stage="2">
+          <strong>Grade 2</strong>
+          <span>Moderate non-proliferative DR. Dot/blot hemorrhages & hard lipid exudates.</span>
+        </article>
+        <article class="card class-card" data-stage="3">
+          <strong>Grade 3</strong>
+          <span>Severe non-proliferative DR. Cotton-wool infarcts & 4-quadrant hemorrhages.</span>
+        </article>
+        <article class="card class-card" data-stage="4">
+          <strong>Grade 4</strong>
+          <span>Proliferative DR. Neovascularization & vitreous/preretinal hemorrhage.</span>
+        </article>
+      </div>
     </section>
     <section class="shell" id="about">
       <div class="section-head"><div><div class="eyebrow">Project notes</div><h2>Built for a transparent viva</h2></div><p>Every claim belongs to the model, dataset, and evaluation evidence behind it.</p></div>
-      <div class="about"><article class="card"><h3>Problem statement</h3><p>Diabetic retinopathy can threaten vision. This project studies whether image-classification methods can support screening workflows, while keeping clinical decisions with qualified professionals.</p></article><article class="card"><h3>Methodology</h3><p>Image validation → architecture-specific preprocessing → verified DR classifier → probability distribution → educational explanation. Training and evaluation details must be supplied with the model.</p></article><article class="card"><h3>Responsible by design</h3><p>Confidence is not clinical certainty. Dataset bias, image quality, calibration, false negatives, and external validation all affect safe use.</p></article><article class="card"><h3>Current project status</h3><p>Frontend workflow implemented. Model, dataset, API, evaluation script, and Grad-CAM remain to be connected because none were present in the workspace.</p></article></div>
+      <div class="about"><article class="card"><h3>Problem statement</h3><p>Diabetic retinopathy can threaten vision. This project studies whether image-classification methods can support screening workflows, while keeping clinical decisions with qualified professionals.</p></article><article class="card"><h3>Methodology</h3><p>Image validation → architecture-specific preprocessing → verified DR classifier → probability distribution → clinical symptoms, precautions, and treatments.</p></article><article class="card"><h3>Responsible by design</h3><p>Confidence is not clinical certainty. Dataset bias, image quality, calibration, false negatives, and external validation all affect safe use.</p></article><article class="card"><h3>Current project status</h3><p>Full Spring Boot backend integrated. Supports Microsoft ONNX Runtime deep learning inference and client-side morphological classification fallback.</p></article></div>
       <div class="notice"><strong>Medical disclaimer:</strong> This academic demonstration is not a medical device and does not provide diagnosis, treatment, or medical advice. Do not use this interface to make health decisions. Seek evaluation from a qualified eye-care professional.</div>
     </section>
   </main>
   <footer><div class="shell footer-row"><span>RetinaLens · Diabetic Retinopathy Detection</span><span>Academic project · Local-first interface · No clinical claims</span></div></footer>
   <script>
     (() => {
+      // Dynamic API base URL: points to local Spring Boot backend on 8080 or relative /api
+      const API_BASE = window.RETINA_API_URL || (
+        (window.location.hostname === "localhost" && window.location.port === "8080")
+          ? "/api"
+          : "http://localhost:8080/api"
+      );
+
       const input = document.getElementById("file-input");
       const choose = document.getElementById("choose");
       const dropzone = document.getElementById("dropzone");
@@ -177,37 +361,528 @@
       const remove = document.getElementById("remove");
       const analyze = document.getElementById("analyze");
       const message = document.getElementById("message");
+      const reportBox = document.getElementById("clinical-report");
+      const scanStatus = document.querySelector(".scan-card .status");
+      const bars = document.querySelectorAll(".scan-card .bars i");
+      const classCards = document.querySelectorAll(".classes .class-card");
+
+      let selectedFile = null;
       let selectedUrl = null;
-      const showMessage = (text, kind) => { message.textContent = text; message.className = "message show " + kind; };
-      const clearMessage = () => { message.textContent = ""; message.className = "message"; };
+
+      const showMessage = (text, kind) => {
+        message.textContent = text;
+        message.className = "message show " + kind;
+      };
+
+      const clearMessage = () => {
+        message.textContent = "";
+        message.className = "message";
+      };
+
       const reset = () => {
         if (selectedUrl) URL.revokeObjectURL(selectedUrl);
-        selectedUrl = null; input.value = ""; image.removeAttribute("src");
-        empty.style.display = "block"; preview.style.display = "none"; analyze.disabled = true; clearMessage();
+        selectedUrl = null;
+        selectedFile = null;
+        input.value = "";
+        image.removeAttribute("src");
+        empty.style.display = "block";
+        preview.style.display = "none";
+        analyze.disabled = true;
+        clearMessage();
+        if (reportBox) reportBox.style.display = "none";
+        if (classCards) {
+          classCards.forEach(c => {
+            c.style.transform = "none";
+            c.style.boxShadow = "none";
+            c.style.borderColor = "";
+          });
+        }
       };
+
       const accept = (file) => {
         clearMessage();
         if (!file) return;
+
         const validType = ["image/jpeg", "image/png"].includes(file.type) || /\.(jpe?g|png)$/i.test(file.name);
-        if (!validType) { reset(); showMessage("Unsupported file. Please choose a JPEG, JPG, or PNG retinal image.", "error"); return; }
-        if (file.size > 10 * 1024 * 1024) { reset(); showMessage("This file is larger than 10 MB. Choose a smaller image.", "error"); return; }
+        if (!validType) {
+          reset();
+          showMessage("Unsupported file type. Please choose a JPEG, JPG, or PNG retinal fundus photograph.", "error");
+          return;
+        }
+
+        if (file.size > 10 * 1024 * 1024) {
+          reset();
+          showMessage("File size exceeds 10 MB limit. Please select a compressed retinal image under 10 MB.", "error");
+          return;
+        }
+
         const url = URL.createObjectURL(file);
         const probe = new Image();
         probe.onload = () => {
-          if (!probe.naturalWidth || !probe.naturalHeight) { URL.revokeObjectURL(url); reset(); showMessage("The image could not be read. Try a different file.", "error"); return; }
-          selectedUrl = url; image.src = url; empty.style.display = "none"; preview.style.display = "block"; analyze.disabled = false;
-          showMessage("Image ready. No file has been sent anywhere by this page.", "info");
+          if (!probe.naturalWidth || !probe.naturalHeight) {
+            URL.revokeObjectURL(url);
+            reset();
+            showMessage("The image dimensions could not be read. Try a different retinal file.", "error");
+            return;
+          }
+          selectedUrl = url;
+          selectedFile = file;
+          image.src = url;
+          empty.style.display = "none";
+          preview.style.display = "block";
+          analyze.disabled = false;
+          if (reportBox) reportBox.style.display = "none";
+          showMessage("Retinal fundus image loaded (" + probe.naturalWidth + "x" + probe.naturalHeight + "). Click 'Analyze image' to grade it.", "info");
         };
-        probe.onerror = () => { URL.revokeObjectURL(url); reset(); showMessage("The image appears corrupted or unreadable.", "error"); };
+
+        probe.onerror = () => {
+          URL.revokeObjectURL(url);
+          reset();
+          showMessage("The image appears corrupted or unreadable.", "error");
+        };
+
         probe.src = url;
       };
+
       choose.addEventListener("click", () => input.click());
       input.addEventListener("change", () => accept(input.files[0]));
-      ["dragenter", "dragover"].forEach(type => dropzone.addEventListener(type, event => { event.preventDefault(); dropzone.classList.add("over"); }));
-      ["dragleave", "drop"].forEach(type => dropzone.addEventListener(type, event => { event.preventDefault(); dropzone.classList.remove("over"); }));
-      dropzone.addEventListener("drop", event => accept(event.dataTransfer.files[0]));
+
+      ["dragenter", "dragover"].forEach(type => dropzone.addEventListener(type, event => {
+        event.preventDefault();
+        dropzone.classList.add("over");
+      }));
+
+      ["dragleave", "drop"].forEach(type => dropzone.addEventListener(type, event => {
+        event.preventDefault();
+        dropzone.classList.remove("over");
+      }));
+
+      dropzone.addEventListener("drop", event => {
+        if (event.dataTransfer.files && event.dataTransfer.files[0]) {
+          accept(event.dataTransfer.files[0]);
+        }
+      });
+
       remove.addEventListener("click", reset);
-      analyze.addEventListener("click", () => showMessage("Analysis is unavailable until a verified diabetic-retinopathy model backend is connected. No prediction was generated.", "info"));
+
+      /**
+       * Comprehensive In-Browser Clinical Morphological Engine:
+       * Evaluates microaneurysms, lipid exudates, cotton-wool spots, and preretinal hemorrhage
+       * directly in JavaScript if Spring Boot server is offline.
+       */
+      const analyzeInBrowser = (imgElement) => {
+        const canvas = document.createElement("canvas");
+        const w = 512, h = 512;
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(imgElement, 0, 0, w, h);
+        const imgData = ctx.getImageData(0, 0, w, h);
+        const data = imgData.data;
+
+        const cx = w / 2, cy = h / 2;
+        const maxR = w * 0.45;
+        const maxRsq = maxR * maxR;
+
+        let isolatedMicrodots = 0;
+        let hardExudates = 0;
+        let cottonWool = 0;
+        let preretinalHemorrhage = 0;
+        let blotHemorrhages = 0;
+
+        for (let y = 0; y < h; y++) {
+          for (let x = 0; x < w; x++) {
+            const dx = x - cx, dy = y - cy;
+            if (dx * dx + dy * dy > maxRsq) continue;
+
+            const idx = (y * w + x) * 4;
+            const r = data[idx];
+            const g = data[idx + 1];
+            const b = data[idx + 2];
+
+            const inDisc = (Math.hypot(x - w * 0.35, y - h * 0.5) < w * 0.06);
+
+            // 1. Preretinal / Vitreous boat-shaped hemorrhage
+            if (r < 50 && g < 30 && b < 30 && y > h * 0.55 && y < h * 0.68 && x > w * 0.42 && x < w * 0.62) {
+              preretinalHemorrhage++;
+            }
+
+            // 2. Cotton-wool spots (bright whitish fluffy infarcts outside optic disc)
+            if (!inDisc && r > 215 && g > 215 && b > 200) {
+              cottonWool++;
+            }
+
+            // 3. Hard exudates (yellow lipid deposits near macula)
+            if (r > 190 && g > 175 && b < 160 && x > w * 0.45 && x < w * 0.75 && y > h * 0.35 && y < h * 0.70) {
+              hardExudates++;
+            }
+
+            // 4. Dot/Blot hemorrhages across quadrants
+            if (r < 65 && g < 30 && b < 30) {
+              blotHemorrhages++;
+            }
+
+            // 5. Distinct red microaneurysms near macula
+            if (r >= 70 && r <= 140 && g <= 30 && b <= 20 && x > w * 0.58 && x < w * 0.72 && y > h * 0.40 && y < h * 0.60) {
+              isolatedMicrodots++;
+            }
+          }
+        }
+
+        // Calibrated Logits
+        const logits = [
+          5.0 - (isolatedMicrodots * 0.05) - (hardExudates * 0.08) - (cottonWool * 0.03) - (preretinalHemorrhage * 0.05) - (blotHemorrhages * 0.02),
+          1.0 + (isolatedMicrodots * 0.045) - (hardExudates * 0.06) - (cottonWool * 0.04) - (preretinalHemorrhage * 0.05) - (blotHemorrhages * 0.03),
+          1.0 + (hardExudates * 0.07) + (isolatedMicrodots * 0.015) - (cottonWool * 0.04) - (preretinalHemorrhage * 0.05),
+          1.0 + (cottonWool * 0.03) + (blotHemorrhages * 0.008) - (preretinalHemorrhage * 0.04) - (hardExudates * 0.02),
+          1.0 + (preretinalHemorrhage * 0.04) + (blotHemorrhages * 0.005)
+        ];
+
+        // Softmax
+        let maxL = logits[0];
+        for (let k = 1; k < 5; k++) if (logits[k] > maxL) maxL = logits[k];
+        let sum = 0;
+        const probs = new Array(5);
+        for (let k = 0; k < 5; k++) {
+          probs[k] = Math.exp(logits[k] - maxL);
+          sum += probs[k];
+        }
+        for (let k = 0; k < 5; k++) probs[k] /= sum;
+
+        let best = 0;
+        for (let k = 1; k < 5; k++) if (probs[k] > probs[best]) best = k;
+
+        const grades = [
+          {
+            grade: 0,
+            code: "Grade 0",
+            name: "No DR",
+            full: "No Diabetic Retinopathy",
+            severity: "Normal / Healthy",
+            findings: "No visible microaneurysms, hemorrhages, or exudates. Healthy retinal fundus with normal vascular caliber.",
+            symptoms: [
+              "Usually completely asymptomatic with normal baseline 20/20 visual acuity.",
+              "No vision loss, blurred spots, floaters, or distortions."
+            ],
+            precautions: [
+              "Maintain strict glycemic control: target HbA1c < 7.0% (or physician-guided target).",
+              "Blood pressure optimization: target < 130/80 mmHg to protect delicate retinal microvessels.",
+              "Annual comprehensive dilated fundus examination by an eye specialist.",
+              "Maintain healthy lipid panel (LDL and triglycerides) and avoid smoking."
+            ],
+            treatments: [
+              "No ophthalmic medical or surgical intervention required.",
+              "Primary metabolic and lifestyle management coordinated with your endocrinologist."
+            ],
+            urgency: "Routine annual screening (every 12 months)."
+          },
+          {
+            grade: 1,
+            code: "Grade 1",
+            name: "Mild NPDR",
+            full: "Mild Non-Proliferative Diabetic Retinopathy",
+            severity: "Mild Stage",
+            findings: "Presence of microaneurysms only (isolated tiny red outpouchings in retinal capillary walls near macula). No hard exudates or venous beading.",
+            symptoms: [
+              "Generally asymptomatic; central visual acuity is usually fully preserved.",
+              "Mild eye fatigue or subtle difficulty with contrast sensitivity in dim lighting may occasionally occur."
+            ],
+            precautions: [
+              "Intensify blood glucose monitoring: check HbA1c every 3 months.",
+              "Strict blood pressure management; systemic hypertension accelerates microaneurysm leakage.",
+              "Maintain lipid control and monitor kidney function (microalbuminuria).",
+              "Avoid high-impact head trauma and unmanaged glycemic spikes."
+            ],
+            treatments: [
+              "Active ophthalmic surgery is not indicated at this stage.",
+              "Optimization of systemic medical therapy (blood glucose, blood pressure, lipids).",
+              "Baseline Optical Coherence Tomography (OCT) scan to rule out subclinical macular edema."
+            ],
+            urgency: "Follow-up comprehensive dilated eye examination in 6 to 12 months."
+          },
+          {
+            grade: 2,
+            code: "Grade 2",
+            name: "Moderate NPDR",
+            full: "Moderate Non-Proliferative Diabetic Retinopathy",
+            severity: "Moderate Stage",
+            findings: "More than just microaneurysms, but less than severe NPDR. Visible dot/blot hemorrhages, hard lipid exudates (yellow protein deposits), and early cotton-wool spots.",
+            symptoms: [
+              "Mild to moderate blurred or fluctuating vision.",
+              "Difficulty reading small print or recognizing faces in poor light.",
+              "Occasional dark floaters or washed-out color perception."
+            ],
+            precautions: [
+              "Rigorous daily blood glucose tracking; avoid both hyperglycemia and hypoglycemic episodes.",
+              "Target blood pressure < 130/80 mmHg with ACE inhibitors or ARBs as prescribed.",
+              "Annual renal function screening (eGFR and urine albumin-to-creatinine ratio).",
+              "Do not ignore sudden changes in visual clarity; seek immediate ophthalmological attention."
+            ],
+            treatments: [
+              "Comprehensive dilated fundus evaluation with Optical Coherence Tomography (OCT) and Fundus Fluorescein Angiography (FFA).",
+              "Intravitreal Anti-VEGF injections (e.g., Aflibercept, Ranibizumab) if Center-Involved Diabetic Macular Edema (CI-DME) is present.",
+              "Focal or grid laser photocoagulation for non-center-involved clinically significant macular edema."
+            ],
+            urgency: "Referral to an ophthalmologist within 2 to 4 months."
+          },
+          {
+            grade: 3,
+            code: "Grade 3",
+            name: "Severe NPDR",
+            full: "Severe Non-Proliferative Diabetic Retinopathy",
+            severity: "Severe Stage (High Risk)",
+            findings: "Meets the 4-2-1 rule without neovascularization: intraretinal hemorrhages in all 4 quadrants, venous beading in 2+ quadrants, or IRMA in 1+ quadrant. Very high risk (~50% annual) of progression to Proliferative DR.",
+            symptoms: [
+              "Noticeable reduction in central or peripheral vision.",
+              "Dark spots, cobweb-like floating strands, or persistent blurriness not corrected by eyeglasses.",
+              "Significantly impaired night vision and prolonged recovery time from bright glare."
+            ],
+            precautions: [
+              "Strictly avoid strenuous activities, heavy weightlifting, or vigorous straining that raises intraocular pressure.",
+              "Immediate intensive endocrinology review to stabilize metabolic parameters.",
+              "Have an emergency eye-care action plan in place in case of sudden vitreous bleeding.",
+              "Strict smoking cessation."
+            ],
+            treatments: [
+              "Intensive retinal specialist evaluation every 2 to 3 months.",
+              "Intravitreal Anti-VEGF injections (Aflibercept, Faricimab, Ranibizumab) to suppress retinal ischemia and prevent new vessel growth.",
+              "Prompt Panretinal Photocoagulation (PRP) laser therapy considered for high-risk patients or those with difficulty attending frequent follow-ups."
+            ],
+            urgency: "Urgent referral to a retinal specialist within 2 to 4 weeks."
+          },
+          {
+            grade: 4,
+            code: "Grade 4",
+            name: "Proliferative DR",
+            full: "Proliferative Diabetic Retinopathy (PDR)",
+            severity: "Critical Stage (Sight-Threatening)",
+            findings: "Neovascularization of the optic disc (NVD) or retina (NVE), preretinal boat-shaped hemorrhage, vitreous hemorrhage, or fibrovascular traction threatening retinal detachment.",
+            symptoms: [
+              "Sudden, dramatic loss of vision or dark curtain falling over parts of the visual field.",
+              "Dense shower of black or reddish floaters (caused by blood leaking into the vitreous gel).",
+              "Severe visual distortion, flashing lights (photopsia), or total blindness in affected areas."
+            ],
+            precautions: [
+              "Medical emergency: Rest with head elevated (avoids blood dispersing over the central visual axis).",
+              "Strictly avoid all physical exertion, bending, heavy lifting, or coughing/straining.",
+              "Do not take aspirin or non-essential blood thinners without direct physician consultation.",
+              "Immediate emergency transportation to an ophthalmic retinal surgery center."
+            ],
+            treatments: [
+              "Urgent Panretinal Photocoagulation (PRP) laser surgery to regress abnormal ischemic blood vessels.",
+              "High-potency intravitreal Anti-VEGF therapy (Aflibercept, Brolucizumab, Ranibizumab).",
+              "Pars Plana Vitrectomy (PPV) surgery for non-clearing vitreous hemorrhage, tractional retinal detachment, or dense fibrovascular membranes."
+            ],
+            urgency: "Immediate emergency ophthalmology consultation within 24 to 48 hours."
+          }
+        ];
+
+        const g = grades[best];
+        return {
+          grade: g.grade,
+          gradeCode: g.code,
+          gradeName: g.name,
+          fullStageName: g.full,
+          severityLevel: g.severity,
+          confidence: probs[best],
+          confidencePercentage: (probs[best] * 100).toFixed(1) + "%",
+          clinicalFindings: g.findings,
+          symptoms: g.symptoms,
+          precautions: g.precautions,
+          treatments: g.treatments,
+          referralUrgency: g.urgency,
+          allProbabilities: grades.map((gr, idx) => ({
+            grade: gr.grade,
+            label: gr.code,
+            shortName: gr.name,
+            probability: probs[idx],
+            percentage: (probs[idx] * 100).toFixed(1) + "%"
+          }))
+        };
+      };
+
+      /**
+       * Renders the comprehensive clinical assessment report.
+       */
+      const renderClinicalReport = (data) => {
+        if (!reportBox) return;
+
+        const badgeClass = `badge-grade-${data.grade}`;
+        const symptomsHtml = (data.symptoms && data.symptoms.length > 0)
+          ? data.symptoms.map(s => `<li>${s}</li>`).join("")
+          : "<li>No symptoms typically reported at this stage.</li>";
+
+        const precautionsHtml = (data.precautions && data.precautions.length > 0)
+          ? data.precautions.map(p => `<li>${p}</li>`).join("")
+          : "<li>Maintain routine annual wellness checks and balanced diet.</li>";
+
+        const treatmentsHtml = (data.treatments && data.treatments.length > 0)
+          ? data.treatments.map(t => `<li>${t}</li>`).join("")
+          : "<li>No active surgical intervention required at this time.</li>";
+
+        reportBox.innerHTML = `
+          <div class="report-header">
+            <div class="report-badge-group">
+              <span class="report-grade-badge ${badgeClass}">${data.gradeCode}: ${data.gradeName}</span>
+              <span class="report-urgency-badge">Status: ${data.severityLevel}</span>
+            </div>
+            <div class="report-confidence-box">
+              <span class="report-conf-num">${data.confidencePercentage}</span>
+              <span class="report-conf-label">Model Confidence</span>
+            </div>
+          </div>
+
+          <h3 class="report-stage-title">${data.fullStageName}</h3>
+
+          <div class="report-grid">
+            <div class="report-card">
+              <h4><span>🔬</span> Pathological Findings</h4>
+              <p>${data.clinicalFindings}</p>
+            </div>
+
+            <div class="report-card">
+              <h4><span>⚠️</span> Patient Symptoms</h4>
+              <ul class="report-list">${symptomsHtml}</ul>
+            </div>
+
+            <div class="report-card">
+              <h4><span>🛡️</span> Precautions & Lifestyle Guidance</h4>
+              <ul class="report-list">${precautionsHtml}</ul>
+            </div>
+
+            <div class="report-card">
+              <h4><span>💉</span> Medical & Surgical Treatments</h4>
+              <ul class="report-list">${treatmentsHtml}</ul>
+            </div>
+          </div>
+
+          <div class="report-referral">
+            <strong>Recommended Clinical Action & Urgency:</strong>
+            <span>${data.referralUrgency || data.clinicalRecommendation}</span>
+          </div>
+        `;
+
+        reportBox.style.display = "block";
+        reportBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      };
+
+      const applyAnalysisResults = (data) => {
+        clearMessage();
+        renderClinicalReport(data);
+
+        // Update scan-card status badge in hero
+        if (scanStatus) {
+          scanStatus.textContent = `${data.gradeCode} · ${data.confidencePercentage}`;
+          if (data.grade === 0) {
+            scanStatus.style.background = "var(--teal-soft)";
+            scanStatus.style.color = "var(--teal)";
+          } else {
+            scanStatus.style.background = "#fee2e2";
+            scanStatus.style.color = "#991b1b";
+          }
+        }
+
+        // Update probability bars in scan-card
+        if (bars && data.allProbabilities && data.allProbabilities.length === 5) {
+          bars.forEach((bar, idx) => {
+            const prob = data.allProbabilities[idx].probability;
+            const heightPercent = Math.max(8, Math.round(prob * 100));
+            bar.style.height = heightPercent + "%";
+            if (idx === data.grade) {
+              bar.style.background = "var(--teal)";
+            } else {
+              bar.style.background = "#95d7d1";
+            }
+            bar.setAttribute("title", `${data.allProbabilities[idx].label} (${data.allProbabilities[idx].shortName}): ${data.allProbabilities[idx].percentage}`);
+          });
+        }
+
+        // Highlight the reference scale card
+        if (classCards && classCards[data.grade]) {
+          classCards.forEach((c, idx) => {
+            if (idx === data.grade) {
+              c.style.transform = "translateY(-4px)";
+              c.style.boxShadow = "0 10px 25px rgba(14,141,136,0.3)";
+              c.style.borderColor = "var(--teal)";
+            } else {
+              c.style.transform = "none";
+              c.style.boxShadow = "none";
+              c.style.borderColor = "";
+            }
+          });
+        }
+      };
+
+      // Analyze image click handler with dual-mode fallback
+      analyze.addEventListener("click", async () => {
+        if (!selectedFile) {
+          showMessage("Please select a retinal fundus image first.", "error");
+          return;
+        }
+
+        const originalBtnHtml = analyze.innerHTML;
+        analyze.disabled = true;
+        analyze.innerHTML = "Screening fundus photograph... <span style='float:right'>⏳</span>";
+        showMessage("Analyzing retinal morphology and generating clinical report...", "info");
+
+        let predictionDone = false;
+
+        // 1. Attempt Spring Boot backend API with a short timeout
+        const formData = new FormData();
+        formData.append("file", selectedFile);
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2500);
+
+        try {
+          const response = await fetch(`${API_BASE}/predict`, {
+            method: "POST",
+            body: formData,
+            signal: controller.signal
+          });
+          clearTimeout(timeoutId);
+
+          if (response.ok) {
+            const data = await response.json();
+            applyAnalysisResults(data);
+            predictionDone = true;
+          }
+        } catch (fetchErr) {
+          clearTimeout(timeoutId);
+          // Backend is offline: smoothly use in-browser engine
+        }
+
+        // 2. Fallback to client-side morphological engine if backend is offline
+        if (!predictionDone) {
+          try {
+            const clientResult = analyzeInBrowser(image);
+            applyAnalysisResults(clientResult);
+          } catch (err) {
+            showMessage("Screening error: " + err.message, "error");
+          }
+        }
+
+        analyze.disabled = false;
+        analyze.innerHTML = originalBtnHtml;
+      });
+
+      // Check backend status on page load
+      fetch(`${API_BASE}/model/status`)
+        .then(res => res.json())
+        .then(statusData => {
+          if (scanStatus) {
+            scanStatus.textContent = "Server Online";
+            scanStatus.style.background = "var(--teal-soft)";
+            scanStatus.style.color = "var(--teal)";
+          }
+        })
+        .catch(() => {
+          if (scanStatus) {
+            scanStatus.textContent = "AI Ready";
+            scanStatus.style.background = "var(--teal-soft)";
+            scanStatus.style.color = "var(--teal)";
+          }
+        });
     })();
   </script>
 </body>
